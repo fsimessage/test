@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 import time
 from selenium import webdriver
-
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
-
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+options = Options()
+options.add_argument("--headless=new")
+s = Service('bin/chromedriver')
+driver = webdriver.Chrome(service=s, options=options)
 
 res = driver.get('https://www.baidu.com')
 # 睡眠3秒
