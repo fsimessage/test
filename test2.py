@@ -2,7 +2,7 @@
 import time
 from selenium import webdriver
 
-driver_path = "/data/selenium/chromedriver"
+driver_path = "/usr/bin/chromedriver"
 
 # 创建chrome参数对象
 opt = webdriver.ChromeOptions()
