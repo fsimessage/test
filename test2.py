@@ -2,18 +2,13 @@
 import time
 from selenium import webdriver
 
-driver_path = "/usr/bin/chromedriver"
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--disable-dev-shm-usage')
+chrome_options.add_argument('--disable-extensions')
+chrome_options.add_argument('--headless')
+driver = webdriver.Chrome(chrome_options=chrome_options)
 
-# 创建chrome参数对象
-opt = webdriver.ChromeOptions()
-# 把chrome设置成为无界面模式
-opt.add_argument('--headless')
-# 创建chrome无界面对象
-driver = webdriver.Chrome(options=opt, executable_path=driver_path)
-driver.implicitly_wait(100)
-time.sleep(2)
-
-# 打开浏览器，模拟浏览器请求页面
 res = driver.get('https://www.baidu.com')
 # 睡眠3秒
 time.sleep(3)
